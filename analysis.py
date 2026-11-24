@@ -51,12 +51,14 @@ fig, ax = plt.subplots(figsize=(9, 5))
 years = enrollment["year"]
 new_thousands = enrollment["new_students"] / 1000   # show in thousands so the axis is easier to read
 
-# dashed line from 2025-26 to the fall 2026 estimate (drawn first, so the blue line sits on top)
+# blue line first (this sets the order of the years on the x-axis)
+ax.plot(years, new_thousands, marker="o", color=BLUE, linewidth=2.5, label="New students (official)", zorder=3)
+
+# dashed red line from 2025-26 to the fall 2026 estimate
+# zorder=2 puts it underneath the blue line, so the 2025-26 dot stays blue
 ax.plot(["2025-26", "Fall 2026\n(estimate)"],
         [latest_new / 1000, fall_2026_estimate / 1000],
-        linestyle="--", marker="o", color=RED, linewidth=2, label="Fall 2026 estimate (survey: -15%)")
-
-ax.plot(years, new_thousands, marker="o", color=BLUE, linewidth=2.5, label="New students (official)")
+        linestyle="--", marker="o", color=RED, linewidth=2, label="Fall 2026 estimate (survey: -15%)", zorder=2)
 
 # notes on the chart
 ax.annotate("COVID", xy=("2020-21", 145.5), xytext=("2020-21", 175),
