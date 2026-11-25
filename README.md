@@ -1,6 +1,6 @@
 # The CPT Rules and International Students
 
-*A data project by Tasnia Ruhi, math + econ student*
+A data project by Tasnia Ruhi
 
 ## The question
 In August 2026, the US government told colleges to stop approving **CPT (Curricular Practical Training)**
